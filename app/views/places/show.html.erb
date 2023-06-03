@@ -1,15 +1,29 @@
 <h1><%= @place["name"] %></h1>
 
 <h2>My Posts</h2>
+
+<div class="col-2 text-start">
+        <% if @current_user != nil %>
+        <a href="/posts/new/" class="btn btn-success">New Post</a>
+          <% else %>
+        Log in to add a new post!
+        <% end %>
+</div>
+
 <% for post in @posts %>
   <h3><%= post["title"] %></h3>
   <h4><%= post["posted_on"] %></h4>
+  <% if post.uploaded_image.attached? %>
+        <!-- use url_for(post.uploaded_image) as attached file's url -->
+        <img src="<%= url_for(post.uploaded_image)%>" class="img-fluid">
+      <!-- otherwise display original image url from database column -->
+      <% else %>
+        Add an image next time!
+      <% end %>
   <p><%= post["description"] %></p>
 <% end %>
 
-<p>
-  <a href="/posts/new?place_id=<%= @place["id"] %>">New Post</a>
-</p>
+<br>
 
 <p>
   <a href="/places">Back to All Places</a>

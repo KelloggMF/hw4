@@ -13,7 +13,7 @@ class UsersController < ApplicationController
       redirect_to "/sessions/new"
     else
       @user.save
-      redirect_to "/posts"
+      redirect_to "/places"
     end 
   end
 end
