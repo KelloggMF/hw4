@@ -16,7 +16,6 @@
   <% if post.uploaded_image.attached? %>
         <!-- use url_for(post.uploaded_image) as attached file's url -->
         <img src="<%= url_for(post.uploaded_image)%>" class="img-fluid">
-      <!-- otherwise display original image url from database column -->
       <% else %>
         Add an image next time!
       <% end %>
