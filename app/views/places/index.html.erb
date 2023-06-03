@@ -5,8 +5,8 @@
         Log in to add a new place!
         <% end %>
       </div>
-
-<ul>
+<br>
+<ul style="list-style-type: none">
   <% for place in @places %>
     <li><a href="/places/<%= place["id"] %>"><%= place["name"] %></a></li>
   <% end %>
