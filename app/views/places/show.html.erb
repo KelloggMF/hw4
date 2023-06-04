@@ -1,6 +1,6 @@
 <h1><%= @place["name"] %></h1>
 
-<h2>My Posts</h2>
+<br>
 
 <div class="col-2 text-start">
         <% if @current_user != nil %>
@@ -10,9 +10,13 @@
         <% end %>
 </div>
 
-<% for post in @posts %>
-  <h3><%= post["title"] %></h3>
-  <h4><%= post["posted_on"] %></h4>
+<br>
+
+<div class="row">
+  <% for post in @posts %>
+    <div class="col-md-3 col-sm-6">
+  <h4><%= post["title"] %></h4>
+  <h5><%= post["posted_on"] %></h5>
   <% if post.uploaded_image.attached? %>
         <!-- use url_for(post.uploaded_image) as attached file's url -->
         <img src="<%= url_for(post.uploaded_image)%>" class="img-fluid">
@@ -20,7 +24,9 @@
         Add an image next time!
       <% end %>
   <p><%= post["description"] %></p>
+</div>
 <% end %>
+</div>
 
 <br>
 
