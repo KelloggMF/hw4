@@ -4,7 +4,7 @@
 
 <div class="col-2 text-start">
         <% if @current_user != nil %>
-        <a href="/posts/new/" class="btn btn-success">New Post</a>
+        <a href="/posts/new?place_id=<%=@place["id"]%>" class="btn btn-success">New Post</a>
           <% else %>
         Log in to add a new post!
         <% end %>
